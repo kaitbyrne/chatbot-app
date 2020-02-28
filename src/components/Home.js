@@ -52,7 +52,7 @@ const Home = (props) => {
   };
 
   const getBotResponse = (text) => {
-    axios.get(`${appState.apiUrl}/interpretText?userInput=${text}`)
+    axios.get(`${appState.apiUrl}/askQuestion?userInput=${text}`)
       .then((response) => {
         setMessages((messages) => [...messages, { user: 'bot', message: response.data.message }]);
         setIsBotLoading(false);
@@ -81,6 +81,7 @@ const Home = (props) => {
           <ChatInput
             appState={appState}
             isSpeaking={isSpeaking}
+            setIsSpeaking={setIsSpeaking}
             sendMessage={sendMessage}
             isBotLoading={isBotLoading}
           />

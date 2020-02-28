@@ -9,6 +9,7 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import SendIcon from '@material-ui/icons/Send';
+import Messages from '../Messages/Messages';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,6 +41,7 @@ const options = {
 
 const ChatInput = (props) => {
   const classes = useStyles();
+  const [appState] = useState(props.appState);
   const [isUserTyping, setIsUserTyping] = useState(false);
   const [inputText, setInputText] = useState('');
   const [messageVariant, setMessageVariant] = useState('');
@@ -151,6 +153,11 @@ const ChatInput = (props) => {
           />
         </Tooltip>
       </FormControl>
+      <div>
+        {errorMessages.length > 0
+          ? <Messages appState={appState} messages={errorMessages} variant={messageVariant} />
+          : null}
+      </div>
     </div>
   )
 };

@@ -99,11 +99,6 @@ const Header = (props) => {
                     />
                     <Brightness3Icon fontSize="small" className={classes.switchTextRight} />
                   </div>
-                  <div className={classes.userName}>
-                    <span>
-                      {`Welcome, ${user.name}`}
-                    </span>
-                  </div>
                 </div>
               )
               : <spa>Login</spa>}
